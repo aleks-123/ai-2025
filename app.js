@@ -2,12 +2,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config({ path: `${__dirname}/config.env` });
-
+const cors = require('cors');
 const db = require('./pkg/db/index');
 const { handleChatRequest } = require('./handlers/aiController');
 const pochvaController = require('./handlers/pochvaController');
+const auth = require('./handlers/authHandler');
 
 const app = express();
+
+app.use(cors());
 
 db.init();
 
@@ -16,6 +19,9 @@ db.init();
 //middelware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.post('/api/v1/signup', auth.signup);
+app.post('/api/v1/login', auth.login);
 
 app.post('/api/v1/ai', handleChatRequest);
 

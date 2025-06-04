@@ -13,12 +13,17 @@ function Root() {
   return (
     <div>
       <nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
-        <Link to='/' style={{ marginRight: '1rem' }}>
-          Почетна
-        </Link>
-        <Link to='/login' style={{ marginRight: '1rem' }}>
-          Најава
-        </Link>
+        {isLoggedIn && (
+          <Link to='/' style={{ marginRight: '1rem' }}>
+            Почетна
+          </Link>
+        )}
+        {!isLoggedIn && (
+          <Link to='/login' style={{ marginRight: '1rem' }}>
+            Најава
+          </Link>
+        )}
+
         {isLoggedIn && (
           <button style={{ marginRight: '1rem' }} onClick={handleLogout}>
             Одјава
