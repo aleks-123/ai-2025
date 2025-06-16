@@ -14,9 +14,14 @@ function Root() {
     <div>
       <nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
         {isLoggedIn && (
-          <Link to='/' style={{ marginRight: '1rem' }}>
-            Почетна
-          </Link>
+          <>
+            <Link to='/' style={{ marginRight: '1rem' }}>
+              Почетна
+            </Link>
+            <Link to='/pochva-chat' style={{ marginRight: '1rem' }}>
+              Чатувај
+            </Link>
+          </>
         )}
         {!isLoggedIn && (
           <Link to='/login' style={{ marginRight: '1rem' }}>

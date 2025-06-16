@@ -4,6 +4,7 @@ import Root from './pages/Root';
 import Homepage from './pages/Homepage';
 import ProtectRoute from './components/ProtectRoute';
 import Login from './pages/Login';
+import PochvaChat from './pages/PochvaChat';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,13 @@ const router = createBrowserRouter([
 
       {
         element: <ProtectRoute />,
-        children: [{ index: true, element: <Homepage /> }],
+        children: [
+          { index: true, element: <Homepage /> },
+          {
+            path: 'pochva-chat',
+            element: <PochvaChat />,
+          },
+        ],
       },
     ],
   },

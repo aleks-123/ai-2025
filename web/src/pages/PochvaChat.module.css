@@ -1,0 +1,59 @@
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: #242424;
+}
+
+.header {
+  margin-bottom: 10px;
+  color: #326bc7;
+}
+
+.chatBox {
+  min-height: 150px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background-color: #242424;
+}
+
+.message {
+  margin: 8px 0;
+  text-align: left;
+}
+
+.messageUser {
+  text-align: right;
+}
+
+.bubble {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 16px;
+  max-width: 80%;
+  word-break: break-word;
+}
+.bubbleUser {
+  background: #326bc7;
+  color: #fff;
+}
+
+.bubbleAi {
+  background: rgb(153, 98, 217);
+  color: #222;
+}
+
+.loading {
+  color: #fff;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+}
