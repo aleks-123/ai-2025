@@ -1,5 +1,5 @@
-const Pochva = require('../pkg/pocva/pochvaSchema');
-const { chatWithAI } = require('./aiSystem');
+const Pochva = require("../pkg/pocva/pochvaSchema");
+const { chatWithAI } = require("./aiSystem");
 
 exports.createPochva = async (req, res) => {
   try {
@@ -27,14 +27,14 @@ exports.chatAboutPochva = async (req, res) => {
     const context = pochvi
       .map(
         (p) =>
-          `Име: ${p.ime}, Тип: ${p.tip}, pH: ${p.ph}, Хумус: ${p.humus}, Локација: ${p.lokacija}, Култура:${p.kultura}`
+          `Име: ${p.ime}, Тип: ${p.tip}, pH: ${p.ph}, Хумус: ${p.humus}, Локација: ${p.lokacija}, Култура:${p.kultura}`,
       )
-      .join('\n');
+      .join("\n");
 
     const systemMessage =
-      'Ти си експерт за почви во Македонија. Користи ги следниве информации за да одговараш на прашања:';
+      "Ти си експерт за почви во Македонија. Користи ги следниве информации за да одговараш на прашања:";
 
-    const fullPrompt = `${systemMessage}\n${context}\n\nПрањање: ${req.body.prompt}`;
+    const fullPrompt = `${systemMessage}\n${context}\n\nПрањање: ${req.body.prompt} <odgovor-primer> Pocvhata x ima tolku ph vrednost, tolku humus, i se naogja na nekoj region <odgovor-primer>`;
 
     const aiResponse = await chatWithAI(fullPrompt);
 
@@ -48,130 +48,130 @@ exports.addSamplePochvi = async (req, res) => {
   try {
     const samplePochvi = [
       {
-        ime: 'Црница',
-        tip: 'Црнозем',
+        ime: "Црница",
+        tip: "Црнозем",
         ph: 6.8,
         humus: 3.5,
-        tekstura: 'глинеста',
-        boja: 'темно кафеава',
-        lokacija: 'Пелагонија',
+        tekstura: "глинеста",
+        boja: "темно кафеава",
+        lokacija: "Пелагонија",
         nadmorskaVisina: 600,
-        karakteristiki: 'Плодна почва, богата со хумус, погодна за житни култури.',
-        kultura: ['пченица', 'јачмен', 'сончоглед'],
+        karakteristiki: "Плодна почва, богата со хумус, погодна за житни култури.",
+        kultura: ["пченица", "јачмен", "сончоглед"],
       },
       {
-        ime: 'Алувијална почва',
-        tip: 'Алувијална',
+        ime: "Алувијална почва",
+        tip: "Алувијална",
         ph: 7.2,
         humus: 2.1,
-        tekstura: 'песоклива',
-        boja: 'светло кафеава',
-        lokacija: 'Вардарска долина',
+        tekstura: "песоклива",
+        boja: "светло кафеава",
+        lokacija: "Вардарска долина",
         nadmorskaVisina: 150,
-        karakteristiki: 'Добра дренажа, погодна за овоштарство и зеленчук.',
-        kultura: ['јаболка', 'пиперка', 'домати'],
+        karakteristiki: "Добра дренажа, погодна за овоштарство и зеленчук.",
+        kultura: ["јаболка", "пиперка", "домати"],
       },
       {
-        ime: 'Рендзина',
-        tip: 'Рендзина',
+        ime: "Рендзина",
+        tip: "Рендзина",
         ph: 7.5,
         humus: 4.0,
-        tekstura: 'глинесто-песоклива',
-        boja: 'сива',
-        lokacija: 'Охридско-Преспански регион',
+        tekstura: "глинесто-песоклива",
+        boja: "сива",
+        lokacija: "Охридско-Преспански регион",
         nadmorskaVisina: 900,
-        karakteristiki: 'Карбонатна почва, богата со минерали.',
-        kultura: ['винова лоза', 'пченка'],
+        karakteristiki: "Карбонатна почва, богата со минерали.",
+        kultura: ["винова лоза", "пченка"],
       },
       {
-        ime: 'Планинска почва',
-        tip: 'Планинска',
+        ime: "Планинска почва",
+        tip: "Планинска",
         ph: 5.8,
         humus: 2.8,
-        tekstura: 'каменеста',
-        boja: 'темно сива',
-        lokacija: 'Шар Планина',
+        tekstura: "каменеста",
+        boja: "темно сива",
+        lokacija: "Шар Планина",
         nadmorskaVisina: 1500,
-        karakteristiki: 'Слабо развиена, погодна за пасишта.',
-        kultura: ['детелина', 'ливадарка'],
+        karakteristiki: "Слабо развиена, погодна за пасишта.",
+        kultura: ["детелина", "ливадарка"],
       },
       {
-        ime: 'Глинеста почва',
-        tip: 'Глинеста',
+        ime: "Глинеста почва",
+        tip: "Глинеста",
         ph: 6.2,
         humus: 2.5,
-        tekstura: 'глинеста',
-        boja: 'црвеникава',
-        lokacija: 'Тиквешко',
+        tekstura: "глинеста",
+        boja: "црвеникава",
+        lokacija: "Тиквешко",
         nadmorskaVisina: 200,
-        karakteristiki: 'Добра за лозарство и градинарство.',
-        kultura: ['грозје', 'краставици'],
+        karakteristiki: "Добра за лозарство и градинарство.",
+        kultura: ["грозје", "краставици"],
       },
       {
-        ime: 'Песоклива почва',
-        tip: 'Песоклива',
+        ime: "Песоклива почва",
+        tip: "Песоклива",
         ph: 7.0,
         humus: 1.2,
-        tekstura: 'песоклива',
-        boja: 'жолта',
-        lokacija: 'Гевгелиско',
+        tekstura: "песоклива",
+        boja: "жолта",
+        lokacija: "Гевгелиско",
         nadmorskaVisina: 80,
-        karakteristiki: 'Лесна за обработка, брзо се загрева.',
-        kultura: ['лубеница', 'диња'],
+        karakteristiki: "Лесна за обработка, брзо се загрева.",
+        kultura: ["лубеница", "диња"],
       },
       {
-        ime: 'Солончаци',
-        tip: 'Солончаци',
+        ime: "Солончаци",
+        tip: "Солончаци",
         ph: 8.5,
         humus: 0.8,
-        tekstura: 'глинесто-песоклива',
-        boja: 'бела',
-        lokacija: 'Кумановско',
+        tekstura: "глинесто-песоклива",
+        boja: "бела",
+        lokacija: "Кумановско",
         nadmorskaVisina: 120,
-        karakteristiki: 'Висока содржина на соли.',
-        kultura: ['јачмен', 'пченка'],
+        karakteristiki: "Висока содржина на соли.",
+        kultura: ["јачмен", "пченка"],
       },
       {
-        ime: 'Каменеста почва',
-        tip: 'Каменеста',
+        ime: "Каменеста почва",
+        tip: "Каменеста",
         ph: 6.0,
         humus: 1.0,
-        tekstura: 'каменеста',
-        boja: 'сива',
-        lokacija: 'Крушевско',
+        tekstura: "каменеста",
+        boja: "сива",
+        lokacija: "Крушевско",
         nadmorskaVisina: 1100,
-        karakteristiki: 'Слабо плодна, погодна за шуми.',
-        kultura: ['бор', 'буква'],
+        karakteristiki: "Слабо плодна, погодна за шуми.",
+        kultura: ["бор", "буква"],
       },
       {
-        ime: 'Иловица',
-        tip: 'Иловица',
+        ime: "Иловица",
+        tip: "Иловица",
         ph: 6.5,
         humus: 2.0,
-        tekstura: 'иловична',
-        boja: 'светло кафеава',
-        lokacija: 'Струмичко',
+        tekstura: "иловична",
+        boja: "светло кафеава",
+        lokacija: "Струмичко",
         nadmorskaVisina: 250,
-        karakteristiki: 'Добра за зеленчук и овошје.',
-        kultura: ['домати', 'јагоди'],
+        karakteristiki: "Добра за зеленчук и овошје.",
+        kultura: ["домати", "јагоди"],
       },
       {
-        ime: 'Планинска црница',
-        tip: 'Црнозем',
+        ime: "Планинска црница",
+        tip: "Црнозем",
         ph: 6.9,
         humus: 3.8,
-        tekstura: 'глинеста',
-        boja: 'темно кафеава',
-        lokacija: 'Маврово',
+        tekstura: "глинеста",
+        boja: "темно кафеава",
+        lokacija: "Маврово",
         nadmorskaVisina: 1400,
-        karakteristiki: 'Плодна, богата со органска материја.',
-        kultura: ['пченица', 'компир'],
+        karakteristiki: "Плодна, богата со органска материја.",
+        kultura: ["пченица", "компир"],
       },
     ];
 
     const inserted = await Pochva.insertMany(samplePochvi);
     res.status(201).json({
-      message: 'Dodadeni pocvi',
+      message: "Dodadeni pocvi",
       data: inserted,
     });
   } catch (err) {
