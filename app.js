@@ -29,6 +29,7 @@ app.post("/api/v1/pochva", pochvaController.createPochva);
 app.get("/api/v1/pochva", pochvaController.getAllPochvi);
 app.post("/api/v1/pochva/samples", pochvaController.addSamplePochvi);
 app.post("/api/v1/pochva/chat", pochvaController.chatAboutPochva);
+app.post("/api/v1/pochva/chat-v2", pochvaController.chatAboutPochvaV2);
 
 app.listen(process.env.PORT, (err) => {
   if (err) {

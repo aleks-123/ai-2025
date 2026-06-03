@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import styles from './PochvaChat.module.css';
 import { useState } from 'react';
 
@@ -65,13 +67,17 @@ function PochvaChat() {
       <div className={styles.chatBox}>
         {messages.map((msg, idx) => (
           <div key={idx} className={msg.role === 'user' ? `${styles.message} ${styles.messageUser}` : styles.message}>
-            <span
+            <div
               className={
                 msg.role === 'user' ? `${styles.bubble} ${styles.bubbleUser}` : `${styles.bubble} ${styles.bubbleAi}`
               }
             >
-              {msg.content}
-            </span>
+              {msg.role === 'user' ? (
+                msg.content
+              ) : (
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
+              )}
+            </div>
           </div>
         ))}
         {loading && <div className={styles.loading}>Се вчитува...</div>}

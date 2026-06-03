@@ -1,24 +1,27 @@
-import { useEffect } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 function Pocva() {
   const [data, setData] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchPochva = async () => {
       try {
-        const rest = await axios.get('http://localhost:100000/api/v1/pocvi');
+        const rest = await axios.get("http://localhost:3000/api/v1/pochva");
         setData(rest.data);
       } catch (err) {
         console.log(err.message);
-        setError('Greska pri vcituvanjeto na server');
+        setError("Greska pri vcituvanjeto na server");
       }
     };
+
+    fetchPochva();
   }, []);
 
   return (
     <div>
       <h2>Site pocvi</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <ul>
         {data.map((p, idx) => (
           <li key={idx}>

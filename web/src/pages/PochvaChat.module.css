@@ -44,6 +44,33 @@
   color: #222;
 }
 
+/* Markdown форматирање внатре во AI балончето */
+.bubbleAi :first-child {
+  margin-top: 0;
+}
+.bubbleAi :last-child {
+  margin-bottom: 0;
+}
+.bubbleAi p {
+  margin: 0.4em 0;
+}
+.bubbleAi ul,
+.bubbleAi ol {
+  margin: 0.4em 0;
+  padding-left: 1.2em;
+}
+.bubbleAi code {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+.bubbleAi pre {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
 .loading {
   color: #fff;
 }
